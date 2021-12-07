@@ -4,7 +4,8 @@ class App extends React.Component {
   }
 
   //GET ROUTE
-  getItems = () => {
+  // componentDidMount() is like useEffect to my understanding
+  componentDidMount = () => {
     axios.get(
       '/api/items'
     ).then(
@@ -134,13 +135,13 @@ class App extends React.Component {
         <div>
           <h3>Add Item</h3>
           <form onSubmit={this.createItem}>
-            <input onChange={this.handleNewItemName} type="text" placeholder="Item Name" />
+            <input onKeyUp={this.handleNewItemName} type="text" placeholder="Item Name" />
             <br/>
-            <input onChange={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
+            <input onKeyUp={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
             <br/>
-            <input onChange={this.handleNewItemLink} type="text" placeholder="Buy Link" />
+            <input onKeyUp={this.handleNewItemLink} type="text" placeholder="Buy Link" />
             <br/>
-            <input onChange={this.handleNewItemImage} type="text" placeholder="Item Image" />
+            <input onKeyUp={this.handleNewItemImage} type="text" placeholder="Item Image" />
             <br/>
             <input type="submit" value="Add New Item" />
           </form>
@@ -162,13 +163,13 @@ class App extends React.Component {
                   <div className="indexButtons">
                     <button>Update</button>
                       <form id={item.id} onSubmit={this.updateItem}>
-                        <input onChange={this.handleUpdateItemName} type="text" placeholder="Item Name" />
+                        <input onKeyUp={this.handleUpdateItemName} type="text" placeholder="Item Name" />
                         <br/>
-                        <input onChange={this.handleUpdateItemQuantity} type="number" placeholder="Item Quantity" />
+                        <input onKeyUp={this.handleUpdateItemQuantity} type="number" placeholder="Item Quantity" />
                         <br/>
-                        <input onChange={this.handleUpdateItemLink} type="text" placeholder="Buy Link" />
+                        <input onKeyUp={this.handleUpdateItemLink} type="text" placeholder="Buy Link" />
                         <br/>
-                        <input onChange={this.handleUpdateItemImage} type="text" placeholder="Item Image" />
+                        <input onKeyUp={this.handleUpdateItemImage} type="text" placeholder="Item Image" />
                         <br/>
                         <input type="submit" value="Update Item" />
                       </form>
