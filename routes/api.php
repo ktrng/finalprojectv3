@@ -21,7 +21,7 @@ Route::get('items', function () {
 });
 
 Route::post('items', function (Request $request) {
-    DB::insert('INSERT INTO items (name, quantity, link, image) VALUES (?, ?, ?, ?)', [$request->name, $request->age]);
+    DB::insert('INSERT INTO items (name, quantity, link, image) VALUES (?, ?, ?, ?)', [$request->name, $request->quantity, $request->link, $request->image]);
     $items = DB::select('SELECT * FROM items ORDER BY id ASC');
     return $items;
 });

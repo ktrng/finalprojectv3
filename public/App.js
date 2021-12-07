@@ -22,7 +22,7 @@ class App extends React.Component {
   createItem = (event) => {
     event.preventDefault()
     axios.post(
-      '/api/people',
+      '/api/items',
       {
         name: this.state.NewItemName,
         quantity: this.state.NewItemQuantity,
@@ -67,7 +67,7 @@ class App extends React.Component {
   //DELETE ROUTE
   deleteItem = (event) => {
     axios.delete(
-      '/api/items' + event.target.value
+      '/api/items/' + event.target.value
     ).then(
       (response) => {
         this.setState({
@@ -83,7 +83,7 @@ class App extends React.Component {
     event.preventDefault();
     const id = event.target.getAttribute('id')
     axios.put(
-      '/api/items' + id,
+      '/api/items/' + id,
       {
         name: this.state.updateItemName,
         quantity: this.state.updateItemQuantity,
@@ -93,9 +93,9 @@ class App extends React.Component {
     ).then(
       (response) => {
         this.setState({
-          people: response.data,
+          items: response.data,
           name: '',
-          quantity: null,
+          quantity: '',
           link: '',
           image: '',
         })
@@ -135,13 +135,13 @@ class App extends React.Component {
         <div>
           <h3>Add Item</h3>
           <form onSubmit={this.createItem}>
-            <input onKeyUp={this.handleNewItemName} type="text" placeholder="Item Name" />
+            <input onChange={this.handleNewItemName} type="text" placeholder="Item Name" />
             <br/>
-            <input onKeyUp={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
+            <input onChange={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
             <br/>
-            <input onKeyUp={this.handleNewItemLink} type="text" placeholder="Buy Link" />
+            <input onChange={this.handleNewItemLink} type="text" placeholder="Buy Link" />
             <br/>
-            <input onKeyUp={this.handleNewItemImage} type="text" placeholder="Item Image" />
+            <input onChange={this.handleNewItemImage} type="text" placeholder="Item Image" />
             <br/>
             <input type="submit" value="Add New Item" />
           </form>
@@ -163,18 +163,16 @@ class App extends React.Component {
                   <div className="indexButtons">
                     <button>Update</button>
                       <form id={item.id} onSubmit={this.updateItem}>
-                        <input onKeyUp={this.handleUpdateItemName} type="text" placeholder="Item Name" />
+                        <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
                         <br/>
-                        <input onKeyUp={this.handleUpdateItemQuantity} type="number" placeholder="Item Quantity" />
+                        <input onChange={this.handleUpdateItemQuantity} type="number" placeholder={item.quantity} />
                         <br/>
-                        <input onKeyUp={this.handleUpdateItemLink} type="text" placeholder="Buy Link" />
+                        <input onChange={this.handleUpdateItemLink} type="text" placeholder={item.link} />
                         <br/>
-                        <input onKeyUp={this.handleUpdateItemImage} type="text" placeholder="Item Image" />
+                        <input onChange={this.handleUpdateItemImage} type="text" placeholder={item.image} />
                         <br/>
                         <input type="submit" value="Update Item" />
                       </form>
-                      <br/>
-
                       <button value={item.id} onClick={this.deleteItem}>Delete</button>
                   </div>
                 </div>
