@@ -1,3 +1,5 @@
+
+
 class App extends React.Component {
   state = {
     items: []
@@ -24,10 +26,10 @@ class App extends React.Component {
     axios.post(
       '/api/items',
       {
-        name: this.state.NewItemName,
-        quantity: this.state.NewItemQuantity,
-        link: this.state.NewItemLink,
-        image: this.state.NewItemImage
+        name: this.state.newItemName,
+        quantity: this.state.newItemQuantity,
+        link: this.state.newItemLink,
+        image: this.state.newItemImage
       }
     ).then(
       (response) => {
@@ -85,10 +87,10 @@ class App extends React.Component {
     axios.put(
       '/api/items/' + id,
       {
-        name: this.state.updateItemName,
-        quantity: this.state.updateItemQuantity,
-        link: this.state.updateItemLink,
-        image: this.state.updateItemImage
+        name: this.state.updateItemName || item.name,
+        quantity: this.state.updateItemQuantity || item.quantity,
+        link: this.state.updateItemLink || item.link,
+        image: this.state.updateItemImage || item.image
       }
     ).then(
       (response) => {
@@ -131,17 +133,17 @@ class App extends React.Component {
 
   render = () => {
     return <div>
-        <h1>Inventory Laravel/React App</h1>
+        <h1>Supply Managr</h1>
         <div>
           <h3>Add Item</h3>
           <form onSubmit={this.createItem}>
-            <input onChange={this.handleNewItemName} type="text" placeholder="Item Name" />
+            <input onKeyUp={this.handleNewItemName} type="text" placeholder="Item Name" />
             <br/>
-            <input onChange={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
+            <input onKeyUp={this.handleNewItemQuantity} type="number" placeholder="Item Quantity" />
             <br/>
-            <input onChange={this.handleNewItemLink} type="text" placeholder="Buy Link" />
+            <input onKeyUp={this.handleNewItemLink} type="text" placeholder="Buy Link" />
             <br/>
-            <input onChange={this.handleNewItemImage} type="text" placeholder="Item Image" />
+            <input onKeyUp={this.handleNewItemImage} type="text" placeholder="Item Image" />
             <br/>
             <input type="submit" value="Add New Item" />
           </form>

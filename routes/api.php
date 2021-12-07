@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::get('items', function () {
     $items = DB::select('SELECT * FROM items ORDER BY id ASC');
     return $items;
@@ -25,6 +26,7 @@ Route::post('items', function (Request $request) {
     $items = DB::select('SELECT * FROM items ORDER BY id ASC');
     return $items;
 });
+
 
 Route::delete('items/{id}', function ($id) {
     DB::delete('DELETE FROM items WHERE id = ?', [$id]);
