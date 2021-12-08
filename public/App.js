@@ -157,7 +157,6 @@ class App extends React.Component {
                   <a href={item.link}>Buy</a>
                   <br/>
                   <div className="indexButtons">
-                    <button>Update</button>
                       <form id={item.id} onSubmit={this.updateItem}>
                         <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
                         <br/>
@@ -176,7 +175,7 @@ class App extends React.Component {
             )
           }
         </div>
-        {console.log(this.state.items[0])}
+        {console.log(this.state.items[1])}
       </div>
   }
 }
