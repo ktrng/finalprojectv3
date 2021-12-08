@@ -32,7 +32,11 @@ class App extends React.Component {
     ).then(
       (response) => {
         this.setState({
-          items: response.data
+          items: response.data,
+          newItemName: '',
+          newItemQuantity: '',
+          newItemLink: '',
+          newItemImage: ''
         })
       }
     )
@@ -85,19 +89,15 @@ class App extends React.Component {
     axios.put(
       '/api/items/' + id,
       {
-        name: this.state.updateItemName || this.state.items[0].name,
-        quantity: this.state.updateItemQuantity || this.state.items[0].quantity,
-        link: this.state.updateItemLink || this.state.items[0].link,
-        image: this.state.updateItemImage || this.state.items[0].image
+        name: this.state.updateItemName,
+        quantity: this.state.updateItemQuantity,
+        link: this.state.updateItemLink,
+        image: this.state.updateItemImage
       }
     ).then(
       (response) => {
         this.setState({
           items: response.data,
-          name: '',
-          quantity: '',
-          link: '',
-          image: '',
         })
       }
     )
@@ -180,6 +180,7 @@ class App extends React.Component {
             )
           }
         </div>
+        {console.log(this.state.items[0])}
       </div>
   }
 }
