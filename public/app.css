@@ -10,3 +10,11 @@ img {
   width: 200px;
   height: 250px;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
