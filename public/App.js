@@ -32,11 +32,7 @@ class App extends React.Component {
     ).then(
       (response) => {
         this.setState({
-          items: response.data,
-          newItemName: '',
-          newItemQuantity: '',
-          newItemLink: '',
-          newItemImage: ''
+          items: response.data
         })
       }
     )
