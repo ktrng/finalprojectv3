@@ -1,5 +1,3 @@
-
-
 class App extends React.Component {
   state = {
     items: []
@@ -87,10 +85,10 @@ class App extends React.Component {
     axios.put(
       '/api/items/' + id,
       {
-        name: this.state.updateItemName || item.name,
-        quantity: this.state.updateItemQuantity || item.quantity,
-        link: this.state.updateItemLink || item.link,
-        image: this.state.updateItemImage || item.image
+        name: this.state.updateItemName || this.state.items[0].name,
+        quantity: this.state.updateItemQuantity || this.state.items[0].quantity,
+        link: this.state.updateItemLink || this.state.items[0].link,
+        image: this.state.updateItemImage || this.state.items[0].image
       }
     ).then(
       (response) => {
