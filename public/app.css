@@ -193,6 +193,7 @@ a:hover {
   border: darkorange solid 0.4em;
   border-radius: 0.7em;
   box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
+  margin-bottom: 1.5em;
 }
 
 
