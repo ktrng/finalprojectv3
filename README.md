@@ -1,5 +1,18 @@
 # finalprojectv3
-- orked matt's laravel/react app and followed the instructions on the markdown. it does not work locally, however, IT DOES WORK WHEN DEPLOYED!!! (seems like i have an issue with php connecting with postgres, which i have spend the past week trying to debug to no avail)
-- recreated my inventory app using matt's laravel/react app as a template. tried to use react components but it does not work. going to deploy now (fingers crossed it works!!)
-- so app is deployed but none of the stuff i entered into the database is showing up
-- PREVIOUS PROBLEM FIXED!!!!! matt's markdown had 'componentDidMount()' and I thought that was just an arbitrary name for the get route, but to my understanding it is like 'useEffect'. I changed my 'getItems()' to 'componentDidMount()'
+
+## Link to Live Site:
+https://nailsupplies.herokuapp.com/index.html
+
+## Technologies Used:
+- php
+- laravel
+- React.js
+- HTML
+- CSS
+- PostgreSQL
+
+## User Stories:
+User has the ability to view/add/edit/delete items.
+
+## Problems
+- user has to add to all input fields in the edit form in order for it to edit.
