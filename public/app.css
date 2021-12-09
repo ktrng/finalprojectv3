@@ -27,7 +27,7 @@ h1 {
   position: relative;
 }
 
-h1::before {
+/* h1::before {
   content: '';
   position: absolute;
   background: darkorange;
@@ -37,7 +37,7 @@ h1::before {
   height: 100%;
   transform: perspective(1em) rotateX(50deg) scale(1, 0.2);
   filter: blur(0.6em);
-}
+} */
 
 form {
   display: flex;
