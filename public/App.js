@@ -126,9 +126,9 @@ class App extends React.Component {
 
 
   render = () => {
-    return <div>
+    return <div id="body">
         <h1>Supply Managr</h1>
-        <div>
+        <div className="add-form">
           <h3>Add Item</h3>
           <form onSubmit={this.createItem}>
             <input onKeyUp={this.handleNewItemName} type="text" placeholder="Item Name" />
@@ -142,7 +142,6 @@ class App extends React.Component {
             <input type="submit" value="Add New Item" />
           </form>
         </div>
-        <hr />
         <div className="indexContainer">
           {
             this.state.items.map(
@@ -158,23 +157,27 @@ class App extends React.Component {
                   <br/>
                   <div className="indexButtons">
                       <form id={item.id} onSubmit={this.updateItem}>
-                        <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
+                        Name: <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
                         <br/>
-                        <input onChange={this.handleUpdateItemQuantity} type="number" placeholder={item.quantity} />
+                        Quantity: <input onChange={this.handleUpdateItemQuantity} type="number" placeholder={item.quantity} />
                         <br/>
-                        <input onChange={this.handleUpdateItemLink} type="text" placeholder={item.link} />
+                        Buy Link: <input onChange={this.handleUpdateItemLink} type="text" placeholder={item.link} />
                         <br/>
-                        <input onChange={this.handleUpdateItemImage} type="text" placeholder={item.image} />
+                        Image: <input onChange={this.handleUpdateItemImage} type="text" placeholder={item.image} />
                         <br/>
-                        <input type="submit" value="Update Item" />
+                        <input className="formbutton" type="submit" value="Update Item" />
                       </form>
-                      <button value={item.id} onClick={this.deleteItem}>Delete</button>
+                      <button className="button" value={item.id} onClick={this.deleteItem}>Delete</button>
                   </div>
                 </div>
               }
             )
           }
         </div>
+        <footer>
+          <a href="https://github.com/ktrng/finalprojectv3">GitHub</a>
+          <a href="https://www.linkedin.com/in/kvntrng/">LinkedIn</a>
+        </footer>
         {console.log(this.state.items[1])}
       </div>
   }

@@ -4,6 +4,62 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+  background: black;
+  color: darkorange;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+#body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30%;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-shadow: 0 0 0.5em darkorange;
+  position: relative;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  background: darkorange;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(50deg) scale(1, 0.2);
+  filter: blur(0.6em);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.3em solid darkorange;
+  border-radius: 0.5em;
+  width: 25%;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
+  font-size: 1.7em;
+  text-shadow: 0 0 0.5em darkorange;
+  box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
+}
+
+.formbutton {
+
 }
 
 img {
@@ -11,10 +67,91 @@ img {
   height: 250px;
 }
 
-.hide {
-  display: none;
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: darkorange;
 }
 
-.show {
-  display: block;
+
+
+
+.button {
+  background: black;
+  font-family: "Nunito", sans-serif;
+  color: darkorange;
+  border: darkorange solid 0.2em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  padding: 0.25em 1em;
+  text-shadow: 0 0 0.5em darkorange;
+  box-shadow: 0 0 0.5em darkorange, inset 0 0 0.4em darkorange;
+  position: relative;
+}
+
+.button::before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  background: darkorange;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.3);
+  filter: blur(0.9em);
+}
+
+.button:hover {
+  cursor: pointer;
+  background: darkorange;
+  color: black;
+  text-shadow: none;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 1em 0.2em darkorange;
+  opacity: 0;
+}
+
+.button:hover::before {
+  filter: blur(0.7em)
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+input {
+  background: rgb(2, 2, 8);
+  border-radius: 0.7em;
+  font-size: 1rem;
+  border: 0.3em solid darkorange;
+  box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
+  padding: 0.5em;
+  color: darkorange;
+}
+
+input:active {
+
+}
+
+input::placeholder {
+  color: darkorange;
+  font-size: 1rem;
+}
+
+.submit {
+  background: transparent;
+  color: darkorange;
+}
+
+.submit:hover {
+  cursor: pointer
 }
