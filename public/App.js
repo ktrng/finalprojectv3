@@ -139,35 +139,39 @@ class App extends React.Component {
             <br/>
             <input onKeyUp={this.handleNewItemImage} type="text" placeholder="Item Image" />
             <br/>
-            <input type="submit" value="Add New Item" />
+            <input className="formbutton" type="submit" value="Add New Item" />
           </form>
         </div>
         <div className="indexContainer">
           {
             this.state.items.map(
               (item, index) => {
-                return <div key={index}>
-                  <img src={item.image} alt={item.name} />
+                return <div className="item" key={index}>
+                  <div className="imgContainer">
+                    <img src={item.image} alt={item.name} />
+                  </div>
                   <br/>
-                  {item.name}
+                  <p>{item.name}</p>
                   <br/>
-                  Quantity: {item.quantity}
+                  <p>Quantity: {item.quantity}</p>
                   <br/>
                   <a href={item.link}>Buy</a>
                   <br/>
-                  <div className="indexButtons">
-                      <form id={item.id} onSubmit={this.updateItem}>
-                        Name: <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
-                        <br/>
-                        Quantity: <input onChange={this.handleUpdateItemQuantity} type="number" placeholder={item.quantity} />
-                        <br/>
-                        Buy Link: <input onChange={this.handleUpdateItemLink} type="text" placeholder={item.link} />
-                        <br/>
-                        Image: <input onChange={this.handleUpdateItemImage} type="text" placeholder={item.image} />
-                        <br/>
-                        <input className="formbutton" type="submit" value="Update Item" />
-                      </form>
-                      <button className="button" value={item.id} onClick={this.deleteItem}>Delete</button>
+                  <div className="hr"></div>
+                  <div clasName="editContainer">
+                    <h3>Edit Item</h3>
+                    <form className="edit-form" id={item.id} onSubmit={this.updateItem}>
+                      Name: <input onChange={this.handleUpdateItemName} type="text" placeholder={item.name} />
+                      <br/>
+                      Quantity: <input onChange={this.handleUpdateItemQuantity} type="number" placeholder={item.quantity} />
+                      <br/>
+                      Buy Link: <input onChange={this.handleUpdateItemLink} type="text" placeholder={item.link} />
+                      <br/>
+                      Image: <input onChange={this.handleUpdateItemImage} type="text" placeholder={item.image} />
+                      <br/>
+                      <input className="formbutton" type="submit" value="Update Item" />
+                    </form>
+                    <button className="button" value={item.id} onClick={this.deleteItem}>Delete</button>
                   </div>
                 </div>
               }

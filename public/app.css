@@ -6,6 +6,7 @@ body {
   font-size: 1rem;
   background: black;
   color: darkorange;
+  text-shadow: 0 0 0.5em darkorange;
 }
 
 main {
@@ -58,38 +59,87 @@ form {
   box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
 }
 
-.formbutton {
+input {
+  background: rgb(2, 2, 8);
+  border-radius: 0.7em;
+  font-size: 1rem;
+  border: 0.3em solid darkorange;
+  box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
+  padding: 0.5em;
+  color: darkorange;
+  text-shadow: 0 0 0.5em darkorange;
+}
 
+
+input::placeholder {
+  color: darkorange;
+  font-size: 1rem;
+}
+
+.formbutton {
+  position: relative;
+}
+
+
+.formbutton:hover {
+  cursor: pointer;
+  background: darkorange;
+  color: black;
+  text-shadow: none;
+  box-shadow: 0 0 1.5em 0.2em darkorange;
+}
+
+.formbutton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 1em 0.2em darkorange;
+  opacity: 0;
 }
 
 img {
-  width: 200px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5em;
 }
 
 a {
   text-decoration: none;
+  text-align: center;
   font-weight: bolder;
   color: darkorange;
+  border: 0.3em solid darkorange;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
+  padding: 0.25em 1em;
 }
 
-
-
+a:hover {
+  cursor: pointer;
+  background: darkorange;
+  color: black;
+  text-shadow: none;
+  box-shadow: 0 0 1.5em 0.2em darkorange;
+}
 
 .button {
+  width: 100%;
   background: black;
   font-family: "Nunito", sans-serif;
   color: darkorange;
-  border: darkorange solid 0.2em;
+  border: darkorange solid 0.3em;
   border-radius: 0.5em;
   font-size: 1rem;
   padding: 0.25em 1em;
   text-shadow: 0 0 0.5em darkorange;
-  box-shadow: 0 0 0.5em darkorange, inset 0 0 0.4em darkorange;
+  box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
   position: relative;
 }
 
-.button::before {
+/* .button::before {
   pointer-events: none;
   content: '';
   position: absolute;
@@ -100,16 +150,17 @@ a {
   height: 100%;
   transform: perspective(1em) rotateX(40deg) scale(1, 0.3);
   filter: blur(0.9em);
-}
+} */
 
 .button:hover {
   cursor: pointer;
   background: darkorange;
   color: black;
   text-shadow: none;
+  box-shadow: 0 0 1.5em 0.2em darkorange;
 }
 
-.button::after {
+/* .button::after {
   content: '';
   position: absolute;
   top: 0;
@@ -126,32 +177,45 @@ a {
 
 .button:hover::after {
   opacity: 1;
+} */
+
+.indexContainer {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-input {
-  background: rgb(2, 2, 8);
-  border-radius: 0.7em;
-  font-size: 1rem;
-  border: 0.3em solid darkorange;
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: darkorange solid 0.4em;
+  border-radius: 0.5em;
   box-shadow: 0 0 1em darkorange, inset 0 0 0.8em darkorange;
-  padding: 0.5em;
-  color: darkorange;
 }
 
-input:active {
 
+
+.hr {
+  width: 100%;
+  border-top: darkorange solid 2px;
 }
 
-input::placeholder {
-  color: darkorange;
-  font-size: 1rem;
+.imgContainer {
+  width: 200px;
+  height: 250px;
 }
 
-.submit {
-  background: transparent;
-  color: darkorange;
+.edit-form {
+  width: 100%;
 }
 
-.submit:hover {
-  cursor: pointer
+
+
+footer{
+  padding-top: 5%;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
 }
